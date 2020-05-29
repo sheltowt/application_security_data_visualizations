@@ -1,0 +1,965 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "LGTM.com",
+          "organization": "Semmle",
+          "version": "1.25.0-SNAPSHOT",
+          "rules": [
+            {
+              "id": "com.lgtm/javascript-queries:js/unused-local-variable",
+              "name": "com.lgtm/javascript-queries:js/unused-local-variable",
+              "shortDescription": {
+                "text": "Unused variable, import, function or class"
+              },
+              "fullDescription": {
+                "text": "Unused variables, imports, functions or classes may be a symptom of a bug and should be examined carefully."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "maintainability"
+                ],
+                "kind": "problem",
+                "precision": "very-high",
+                "problem.severity": "recommendation"
+              }
+            },
+            {
+              "id": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+              "name": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+              "shortDescription": {
+                "text": "Missing variable declaration"
+              },
+              "fullDescription": {
+                "text": "If a variable is not declared as a local variable, it becomes a global variable by default, which may be unintentional and could lead to unexpected behavior."
+              },
+              "defaultConfiguration": {},
+              "properties": {
+                "tags": [
+                  "reliability",
+                  "maintainability"
+                ],
+                "kind": "problem",
+                "precision": "high",
+                "problem.severity": "warning"
+              }
+            },
+            {
+              "id": "com.lgtm/javascript-queries:js/server-side-unvalidated-url-redirection",
+              "name": "com.lgtm/javascript-queries:js/server-side-unvalidated-url-redirection",
+              "shortDescription": {
+                "text": "Server-side URL redirect"
+              },
+              "fullDescription": {
+                "text": "Server-side URL redirection based on unvalidated user input may cause redirection to malicious web sites."
+              },
+              "defaultConfiguration": {},
+              "properties": {
+                "tags": [
+                  "security",
+                  "external/cwe/cwe-601"
+                ],
+                "kind": "path-problem",
+                "precision": "high",
+                "problem.severity": "warning"
+              }
+            },
+            {
+              "id": "com.lgtm/javascript-queries:js/sql-injection",
+              "name": "com.lgtm/javascript-queries:js/sql-injection",
+              "shortDescription": {
+                "text": "Database query built from user-controlled sources"
+              },
+              "fullDescription": {
+                "text": "Building a database query from user-controlled sources is vulnerable to insertion of malicious code by the user."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "external/cwe/cwe-089"
+                ],
+                "kind": "path-problem",
+                "precision": "high",
+                "problem.severity": "error"
+              }
+            },
+            {
+              "id": "com.lgtm/javascript-queries:js/command-line-injection",
+              "name": "com.lgtm/javascript-queries:js/command-line-injection",
+              "shortDescription": {
+                "text": "Uncontrolled command line"
+              },
+              "fullDescription": {
+                "text": "Using externally controlled strings in a command line may allow a malicious user to change the meaning of the command."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "correctness",
+                  "security",
+                  "external/cwe/cwe-078",
+                  "external/cwe/cwe-088"
+                ],
+                "kind": "path-problem",
+                "precision": "high",
+                "problem.severity": "error"
+              }
+            },
+            {
+              "id": "com.lgtm/javascript-queries:js/hardcoded-credentials",
+              "name": "com.lgtm/javascript-queries:js/hardcoded-credentials",
+              "shortDescription": {
+                "text": "Hard-coded credentials"
+              },
+              "fullDescription": {
+                "text": "Hard-coding credentials in source code may enable an attacker to gain unauthorized access."
+              },
+              "defaultConfiguration": {},
+              "properties": {
+                "tags": [
+                  "security",
+                  "external/cwe/cwe-259",
+                  "external/cwe/cwe-321",
+                  "external/cwe/cwe-798"
+                ],
+                "kind": "path-problem",
+                "precision": "high",
+                "problem.severity": "warning"
+              }
+            },
+            {
+              "id": "com.lgtm/javascript-queries:js/missing-token-validation",
+              "name": "com.lgtm/javascript-queries:js/missing-token-validation",
+              "shortDescription": {
+                "text": "Missing CSRF middleware"
+              },
+              "fullDescription": {
+                "text": "Using cookies without CSRF protection may allow malicious websites to submit requests on behalf of the user."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "external/cwe/cwe-352"
+                ],
+                "kind": "problem",
+                "precision": "high",
+                "problem.severity": "error"
+              }
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "models/index.js",
+            "uriBaseId": "%SRCROOT%",
+            "index": 0
+          }
+        },
+        {
+          "location": {
+            "uri": "server.js",
+            "uriBaseId": "%SRCROOT%",
+            "index": 1
+          }
+        },
+        {
+          "location": {
+            "uri": "core/appHandler.js",
+            "uriBaseId": "%SRCROOT%",
+            "index": 2
+          }
+        },
+        {
+          "location": {
+            "uri": "core/passport.js",
+            "uriBaseId": "%SRCROOT%",
+            "index": 3
+          }
+        },
+        {
+          "location": {
+            "uri": "routes/app.js",
+            "uriBaseId": "%SRCROOT%",
+            "index": 4
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/unused-local-variable",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused variable env."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "models/index.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 5,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "11d2c9ac1cc28324:1",
+            "primaryLocationStartColumnFingerprint": "4"
+          }
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/unused-local-variable",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused variable ejs."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 5,
+                  "endColumn": 8
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "a40bec79ba258973:1",
+            "primaryLocationStartColumnFingerprint": "4"
+          }
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Variable output is used like a local variable, but is missing a declaration."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 3,
+                  "endColumn": 9
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "7166ffb72460cf82:1",
+            "primaryLocationStartColumnFingerprint": "0"
+          }
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Variable output is used like a local variable, but is missing a declaration."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 3,
+                  "endColumn": 9
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "4c81d5df9dcb0121:1",
+            "primaryLocationStartColumnFingerprint": "0"
+          }
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Variable output is used like a local variable, but is missing a declaration."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 3,
+                  "endColumn": 9
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "825665e767492068:1",
+            "primaryLocationStartColumnFingerprint": "0"
+          }
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Variable output is used like a local variable, but is missing a declaration."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 3,
+                  "endColumn": 9
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "523e40e01964f4ad:1",
+            "primaryLocationStartColumnFingerprint": "0"
+          }
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Variable output is used like a local variable, but is missing a declaration."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 4,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "153da29ad0812f01:1",
+            "primaryLocationStartColumnFingerprint": "0"
+          }
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Variable output is used like a local variable, but is missing a declaration."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 125,
+                  "startColumn": 4,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "4868ad6d74145f27:1",
+            "primaryLocationStartColumnFingerprint": "0"
+          }
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Variable findOrCreateUser is used like a local variable, but is missing a declaration."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/passport.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 13,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "7a082431c728e54f:1",
+            "primaryLocationStartColumnFingerprint": "0"
+          }
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/server-side-unvalidated-url-redirection",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Untrusted URL redirection due to [user-provided value](1)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 188,
+                  "startColumn": 16,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "bb1c79c97102e045:1",
+            "primaryLocationStartColumnFingerprint": "13"
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "core/appHandler.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 188,
+                            "startColumn": 16,
+                            "endColumn": 29
+                          }
+                        },
+                        "message": {
+                          "text": "Step 1"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "core/appHandler.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 188,
+                            "startColumn": 16,
+                            "endColumn": 29
+                          }
+                        },
+                        "message": {
+                          "text": "Step 2"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 188,
+                  "startColumn": 16,
+                  "endColumn": 29
+                }
+              },
+              "message": {
+                "text": "user-provided value"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/sql-injection",
+          "ruleIndex": 3,
+          "message": {
+            "text": "This query depends on [a user-provided value](1)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 21,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "3758794982546b55:1",
+            "primaryLocationStartColumnFingerprint": "19"
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "core/appHandler.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 10,
+                            "startColumn": 58,
+                            "endColumn": 66
+                          }
+                        },
+                        "message": {
+                          "text": "Step 1"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "core/appHandler.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 10,
+                            "startColumn": 58,
+                            "endColumn": 72
+                          }
+                        },
+                        "message": {
+                          "text": "Step 2"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "core/appHandler.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 10,
+                            "startColumn": 14,
+                            "endColumn": 78
+                          }
+                        },
+                        "message": {
+                          "text": "Step 3"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "core/appHandler.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 10,
+                            "startColumn": 6,
+                            "endColumn": 78
+                          }
+                        },
+                        "message": {
+                          "text": "Step 4"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "core/appHandler.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 11,
+                            "startColumn": 21,
+                            "endColumn": 26
+                          }
+                        },
+                        "message": {
+                          "text": "Step 5"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 58,
+                  "endColumn": 66
+                }
+              },
+              "message": {
+                "text": "a user-provided value"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/command-line-injection",
+          "ruleIndex": 4,
+          "message": {
+            "text": "This command depends on [a user-provided value](1)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 7,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "131031fc7176b618:1",
+            "primaryLocationStartColumnFingerprint": "5"
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "core/appHandler.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 39,
+                            "startColumn": 22,
+                            "endColumn": 30
+                          }
+                        },
+                        "message": {
+                          "text": "Step 1"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "core/appHandler.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 39,
+                            "startColumn": 22,
+                            "endColumn": 38
+                          }
+                        },
+                        "message": {
+                          "text": "Step 2"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "core/appHandler.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 39,
+                            "startColumn": 7,
+                            "endColumn": 38
+                          }
+                        },
+                        "message": {
+                          "text": "Step 3"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "core/appHandler.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 22,
+                  "endColumn": 30
+                }
+              },
+              "message": {
+                "text": "a user-provided value"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/hardcoded-credentials",
+          "ruleIndex": 5,
+          "message": {
+            "text": "The hard-coded value \"keyboard cat\" is used as [key](1)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 11,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "ab2ec259175a2049:1",
+            "primaryLocationStartColumnFingerprint": "8"
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "server.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 1
+                          },
+                          "region": {
+                            "startLine": 24,
+                            "startColumn": 11,
+                            "endColumn": 25
+                          }
+                        },
+                        "message": {
+                          "text": "Step 1"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "server.js",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 1
+                          },
+                          "region": {
+                            "startLine": 24,
+                            "startColumn": 11,
+                            "endColumn": 25
+                          }
+                        },
+                        "message": {
+                          "text": "Step 2"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 11,
+                  "endColumn": 25
+                }
+              },
+              "message": {
+                "text": "key"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "com.lgtm/javascript-queries:js/missing-token-validation",
+          "ruleIndex": 6,
+          "message": {
+            "text": "This cookie middleware is serving a request handler [here](1) without CSRF protection."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 9,
+                  "endLine": 28,
+                  "endColumn": 3
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "cdd593f219358217:1",
+            "primaryLocationStartColumnFingerprint": "8"
+          },
+          "relatedLocations": [
+            {
+              "id": 1,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "routes/app.js",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 4
+                },
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 59,
+                  "endColumn": 84
+                }
+              },
+              "message": {
+                "text": "here"
+              }
+            }
+          ]
+        }
+      ],
+      "newlineSequences": [
+        "\r\n",
+        "\n",
+        " ",
+        " "
+      ],
+      "columnKind": "utf16CodeUnits",
+      "properties": {
+        "semmle.formatSpecifier": "2.1.0",
+        "semmle.sourceLanguage": "javascript"
+      }
+    }
+  ]
+}

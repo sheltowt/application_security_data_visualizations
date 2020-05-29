@@ -1,0 +1,195 @@
+{
+  "name": "DVNA sast scan",
+  "children": [
+    {
+      "name": "com.lgtm/javascript-queries:js/unused-local-variable",
+      "children": [
+        {
+          "startLine": 6,
+          "name": "models/index.js"
+        },
+        {
+          "startLine": 5,
+          "name": "server.js"
+        }
+      ]
+    },
+    {
+      "name": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+      "children": [
+        {
+          "startLine": 40,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 49,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 66,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 78,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 93,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 125,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 54,
+          "name": "core/passport.js"
+        }
+      ]
+    },
+    {
+      "name": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+      "children": [
+        {
+          "startLine": 40,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 49,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 66,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 78,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 93,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 125,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 54,
+          "name": "core/passport.js"
+        }
+      ]
+    },
+    {
+      "name": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+      "children": [
+        {
+          "startLine": 40,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 49,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 66,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 78,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 93,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 125,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 54,
+          "name": "core/passport.js"
+        }
+      ]
+    },
+    {
+      "name": "com.lgtm/javascript-queries:js/missing-variable-declaration",
+      "children": [
+        {
+          "startLine": 40,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 49,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 66,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 78,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 93,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 125,
+          "name": "core/appHandler.js"
+        },
+        {
+          "startLine": 54,
+          "name": "core/passport.js"
+        }
+      ]
+    },
+    {
+      "name": "com.lgtm/javascript-queries:js/server-side-unvalidated-url-redirection",
+      "children": [
+        {
+          "startLine": 188,
+          "name": "core/appHandler.js"
+        }
+      ]
+    },
+    {
+      "name": "com.lgtm/javascript-queries:js/sql-injection",
+      "children": [
+        {
+          "startLine": 11,
+          "name": "core/appHandler.js"
+        }
+      ]
+    },
+    {
+      "name": "com.lgtm/javascript-queries:js/command-line-injection",
+      "children": [
+        {
+          "startLine": 39,
+          "name": "core/appHandler.js"
+        }
+      ]
+    },
+    {
+      "name": "com.lgtm/javascript-queries:js/hardcoded-credentials",
+      "children": [
+        {
+          "startLine": 24,
+          "name": "server.js"
+        }
+      ]
+    },
+    {
+      "name": "com.lgtm/javascript-queries:js/missing-token-validation",
+      "children": [
+        {
+          "startLine": 23,
+          "name": "server.js"
+        }
+      ]
+    }
+  ]
+}
