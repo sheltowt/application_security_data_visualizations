@@ -34,26 +34,52 @@
 
 var treeData = [
   {
-    "name": "Top Level",
+    "name": "DVNA",
     "parent": "null",
     "children": [
       {
-        "name": "Level 2: A",
+        "name": "mathjs@3.10.1",
         "parent": "Top Level",
         "children": [
           {
-            "name": "Son of A",
-            "parent": "Level 2: A"
-          },
-          {
-            "name": "Daughter of A",
+            "name": "type-function@0.10.5",
             "parent": "Level 2: A"
           }
         ]
       },
       {
-        "name": "Level 2: B",
+        "name": "node-serialize@0.0.4",
         "parent": "Top Level"
+      },
+      {
+        "name": "express-fileupload@0.4.0",
+        "parent": "Top Level"
+      },
+      {
+        "name": "sequelize@4.44.4",
+        "parent": "Top Level",
+        "children": [
+          {
+            "name": "lodash@4.17.15",
+            "parent": "Level 2: A"
+          }
+        ]
+      },
+      {
+        "name": "winston@3.2.1",
+        "parent": "Top Level",
+        "children": [
+          {
+            "name": "async@2.6.3",
+            "parent": "Level 2: A",
+            "children": [
+              {
+                "name": "lodash@4.17.15",
+                "parent": "Top Level"
+              }
+            ]
+          }
+        ]
       }
     ]
   }
