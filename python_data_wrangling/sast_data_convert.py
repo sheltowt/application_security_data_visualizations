@@ -9,14 +9,14 @@ modified_object["children"] = []
 
 for result in data["runs"][0]["results"]:
 	new_result = {}
-	new_result["name"] = result["ruleId"]
+	new_result["name"] = result["message"]["text"]
 	new_result["children"] = []
 	modified_object["children"].append(new_result)
 
 
 for result in data["runs"][0]["results"]:
 	for mod_obj in modified_object["children"]:
-		if result["ruleId"] == mod_obj["name"]:
+		if result["message"]["text"] == mod_obj["name"]:
 			new_child = {}
 			new_child["name"] = result["locations"][0]["physicalLocation"]["artifactLocation"]["uri"]
 			new_child["startLine"] = result["locations"][0]["physicalLocation"]["region"]["startLine"]
