@@ -20,17 +20,20 @@ for result in data["runs"][0]["results"]:
 			new_child = {}
 			new_child["name"] = result["locations"][0]["physicalLocation"]["artifactLocation"]["uri"]
 			new_child["startLine"] = result["locations"][0]["physicalLocation"]["region"]["startLine"]
+			new_child["size"] = 1
 			mod_obj["children"].append(new_child)
 
-unique_child = []
+unique_child_name = []
+unique_children = []
 
 for index, child in enumerate(modified_object["children"]):
-	if child["name"] in unique_child:
-		del modified_object["children"][index:index+1]
-		print(index)
+	if child["name"] in unique_child_name:
+		pass
 	else:
-		unique_child.append(child["name"])
-print(unique_child)
+		unique_child_name.append(child["name"])
+		unique_children.append(child)
+
+modified_object["children"] = unique_children
 
 with open('../public/dvna_sast.json', 'w') as outfile:
 	json.dump(modified_object, outfile)
