@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.2;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+text {
+  font-family: sans-serif;
+  font-size: 10px;
+}
+
+#navigation {
+    position: absolute; /*or fixed*/
+    top: 60px;
+    right: 140px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+</style>
+<svg width="600" height="600"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<div id="navigation">
+  <header>
+    <h2>Insecure Deserialization Vulnerability</h2>
+    <p>The application build #321 was deployed with an insecure</p> 
+    <p>deserialization error due to use of the Apache Struts library</p>
+    <h2>NGINX Logs Indicate Intentional Tampering</h2>
+    <p>Repeated attack attempts at vulnerable URL</p>
+    <h2>New Process Spawned</h2>
+    <p>OSQuery detected abnormal endpoint activity</p>
+    <p>consistent with remote code execution</p>
+    <h2>Abnormal Database Activity</h2>
+    <p>Database queries occured that had never been seen before</p>
+    <h2>Network Alert</h2>
+    <p>Large data volumes were seen leaving the VPC</p>
+  </header>
+</div>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+// var simulation = d3.forceSimulation()
+//     .force("charge", d3.forceManyBody().strength(-30 ))
+//   .force("link", d3.forceLink().distance(function(d) { return d.id } ).strength(2) )
+//     .force("center", d3.forceCenter(width / 2, height / 2))
+//   .force("collide",d3.forceCollide().strength(0).radius(0))
+
+var simulation = d3.forceSimulation()
+    .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0))
+    .force("charge", d3.forceManyBody().strength(-30 ))
+    .force("center", d3.forceCenter(width / 2, height / 2))
+    // .force("collide",d3.forceCollide().strength(0).radius(0))
+
+d3.json("cloud_application_incidents.json", function(error, graph) {
+  if (error) throw error;
+
+  var link = svg.append("g")
+      .attr("class", "links")
+    .selectAll("line")
+    .data(graph.links)
+    .enter().append("line")
+      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+
+  var node = svg.append("g")
+      .attr("class", "nodes")
+    .selectAll("g")
+    .data(graph.nodes)
+    .enter().append("g")
+    
+  var circles = node.append("circle")
+      .attr("r", 10)
+      .attr("fill", function(d) { return color(d.group); })
+      .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+
+  var lables = node.append("text")
+      .text(function(d) {
+        return d.id;
+      })
+      .attr('x', 6)
+      .attr('y', 3);
+
+  node.append("title")
+      .text(function(d) { return d.id; });
+
+  simulation
+      .nodes(graph.nodes)
+      .on("tick", ticked);
+
+  simulation.force("link")
+      .links(graph.links);
+
+  function ticked() {
+    link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node
+        .attr("transform", function(d) {
+          return "translate(" + d.x + "," + d.y + ")";
+        })
+  }
+});
+
+function dragstarted(d) {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+
+function dragended(d) {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+
+</script>

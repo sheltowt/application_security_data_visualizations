@@ -1,0 +1,29 @@
+{
+  "nodes": [
+    {"id": "Cloud.Environment", "group": 1},
+    {"id": "Cloud.Security.Audit", "group": 1},
+    {"id": "AWS.Security.Hub", "group": 1},
+    {"id": "Application.Security", "group": 2},
+    {"id": "Secure.Components.Analysis", "group": 2},
+    {"id": "Static.Application.Security.Testing", "group": 2},
+    {"id": "Dynamic.Application.Security.Testing", "group": 2},
+    {"id": "Endpoint.Telemetry", "group": 3},
+    {"id": "Network.Security", "group": 4},
+    {"id": "Database.Security", "group": 5}
+  ],
+  "links": [
+    {"source": "Cloud.Environment", "target": "Application.Security", "value": 8},
+    {"source": "Cloud.Environment", "target": "Endpoint.Telemetry", "value": 8},
+    {"source": "Cloud.Environment", "target": "Network.Security", "value": 8},
+    {"source": "Cloud.Environment", "target": "Database.Security", "value": 8},
+    {"source": "Cloud.Environment", "target": "Cloud.Security.Audit", "value": 13},
+    {"source": "Cloud.Environment", "target": "AWS.Security.Hub", "value": 13},
+    {"source": "Application.Security", "target": "Endpoint.Telemetry", "value": 13},
+    {"source": "Application.Security", "target": "Secure.Components.Analysis", "value": 13},
+    {"source": "Application.Security", "target": "Static.Application.Security.Testing", "value": 13},
+    {"source": "Application.Security", "target": "Dynamic.Application.Security.Testing", "value": 13},
+    {"source": "Cloud.Environment", "target": "Cloud.Security.Audit", "value": 13},
+    {"source": "Cloud.Environment", "target": "AWS.Security.Hub", "value": 13},
+    {"source": "Endpoint.Telemetry", "target": "Cloud.Environment", "value": 8}
+  ]
+}

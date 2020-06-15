@@ -1,0 +1,15 @@
+{
+  "nodes": [
+    {"id": "Insecure.Deserialization.SCA", "group": 1},
+    {"id": "NGINX.Logs.Indicate.Intentional.Tampering", "group": 5},
+    {"id": "Abnormal.Endpoint.Telemetry.NewProcessSpawned", "group": 2},
+    {"id": "Abnormal.Database.Activity.UnexpectedQuery", "group": 3},
+    {"id": "Abnormal.NetworkActivity.LargeDataTransfer", "group": 4}
+  ],
+  "links": [
+    {"source": "Insecure.Deserialization.SCA", "target": "NGINX.Logs.Indicate.Intentional.Tampering", "value": 8},
+    {"source": "NGINX.Logs.Indicate.Intentional.Tampering", "target": "Abnormal.Endpoint.Telemetry.NewProcessSpawned", "value": 8},
+    {"source": "Abnormal.Endpoint.Telemetry.NewProcessSpawned", "target": "Abnormal.Database.Activity.UnexpectedQuery", "value": 8},
+    {"source": "Abnormal.Database.Activity.UnexpectedQuery", "target": "Abnormal.NetworkActivity.LargeDataTransfer", "value": 8}
+  ]
+}
