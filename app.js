@@ -9,7 +9,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/cloudappalerts', function(req, res) {
-    res.sendFile('./alerts/cloud_application_incidents.html', { root: __dirname });
+    res.sendFile('./alerts/new_alert.html', { root: __dirname });
 });
 
 app.get('/sca', function(req, res) {
