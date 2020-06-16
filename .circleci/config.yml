@@ -6,4 +6,3 @@ jobs:
     steps:
       - checkout 
       - run: npm install
-      - run: node app.js
