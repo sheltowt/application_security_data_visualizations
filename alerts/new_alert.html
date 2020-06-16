@@ -49,18 +49,41 @@ text {
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
 
+#navigation {
+    position: absolute; /*or fixed*/
+    top: 60px;
+    right: 140px;
+}
+
 </style>
 <body>
+  <div id="navigation">
+  <header>
+    <h2><a href="sca">Insecure Deserialization Vulnerability</a></h2>
+    <p>The application build #321 was deployed with an insecure</p> 
+    <p>deserialization error due to use of the Apache Struts library</p>
+    <h2><a href="nginx">NGINX Logs Indicate Intentional Tampering</a></h2>
+    <p>Repeated attack attempts at vulnerable URL</p>
+    <h2><a href="osquery">New Process Spawned</a></h2>
+    <p>OSQuery detected abnormal endpoint activity</p>
+    <p>consistent with remote code execution</p>
+    <h2>Abnormal Database Activity</h2>
+    <p>Database queries occured that had never been seen before</p>
+    <h2>Manual Investigation Required</h2>
+    <p>Review traffic leaving the VPC</p>
+    <p>Conduct forensic analysis of server and database</p>
+  </header>
+</div>
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
 var links = [
-  {source: "Insecure Deserialization SCA", target: "NGINX Logs Indicate Intentional Tampering", type: "suit"},
-  {source: "NGINX Logs Indicate Intentional Tampering", target: "Abnormal Endpoint Telemetry New Process Spawned", type: "suit"},
-  {source: "Abnormal Endpoint Telemetry New Process Spawned", target: "Abnormal Database Activity - Unexpected Query", type: "suit"},
+  {source: "Insecure Deserialization SCA", target: "NGINX Logs Indicate Web App Tampering", type: "suit"},
+  {source: "NGINX Logs Indicate Web App Tampering", target: "Abnormal Endpoint Telemetry - New Process Spawned", type: "suit"},
+  {source: "Abnormal Endpoint Telemetry - New Process Spawned", target: "Abnormal Database Activity - Unexpected Query", type: "suit"},
   {source: "Abnormal Database Activity - Unexpected Query", target: "Manual Response Required - Investigate Network, Database Activity", type: "licensing"},
-  {source: "NGINX Logs Indicate Intentional Tampering", target: "Medium Severity Alert", type: "medium_resolved"},
-  {source: "Abnormal Endpoint Telemetry New Process Spawned", target: "High Severity Alert, On-Call Notification", type: "high_resolved"},
+  {source: "NGINX Logs Indicate Web App Tampering", target: "Medium Severity Alert", type: "medium_resolved"},
+  {source: "Abnormal Endpoint Telemetry - New Process Spawned", target: "High Severity Alert, On-Call Notification", type: "high_resolved"},
   {source: "Abnormal Database Activity - Unexpected Query", target: "Automated Response - Quarantine Server and Database", type: "automated_resolved"}
 ];
 

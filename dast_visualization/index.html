@@ -17,41 +17,41 @@
             {
               "Count": "20",
               "Solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
-              "Name": "X-Content-Type-Options Header Missing",
+              "Name": "No X-Content-Type-Options",
               "Description": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>"
             },
             {
-              "Count": "51",
+              "Count": "23",
               "Solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
-              "Name": "Cross-Domain JavaScript Source File Inclusion",
+              "Name": "Cross-Domain File Inclusion",
               "Description": "<p>The page includes one or more script files from a third-party domain.</p>"
             },
             {
-              "Count": "2",
+              "Count": "12",
               "Solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
-              "Name": "Cookie Without SameSite Attribute",
+              "Name": "No SameSite Attribute",
               "Description": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>"
             },
             {
               "Count": "27",
               "Solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress \"X-Powered-By\" headers.</p>",
-              "Name": "Server Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)",
+              "Name": "Server Leaks Information via \"X-Powered-By\"",
               "Description": "<p>The web/application server is leaking information via one or more \"X-Powered-By\" HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.</p>"
             },
             {
-              "Count": "2",
+              "Count": "10",
               "Solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-              "Name": "Information Disclosure - Suspicious Comments",
+              "Name": "Information Disclosure",
               "Description": "<p>The response appears to contain suspicious comments which may help an attacker.</p>"
             },
             {
               "Count": "17",
               "Solution": "<p>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. ALLOW-FROM allows specific websites to frame the web page in supported web browsers).</p>",
-              "Name": "X-Frame-Options Header Not Set",
+              "Name": "X-Frame-Options Not Set",
               "Description": "<p>X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.</p>"
             },
             {
-              "Count": "3",
+              "Count": "7",
               "Solution": "<p>Always scope cookies to a FQDN (Fully Qualified Domain Name).</p>",
               "Name": "Loosely Scoped Cookie",
               "Description": "<p>Cookies can be scoped by domain or path. This check is only concerned with domain scope.The domain scope applied to a cookie determines which domains can access it. For example, a cookie can be scoped strictly to a subdomain e.g. www.nottrusted.com, or loosely scoped to a parent domain e.g. nottrusted.com. In the latter case, any subdomain of nottrusted.com can access the cookie. Loosely scoped cookies are common in mega-applications like google.com and live.com. Cookies set from a subdomain like app.foo.bar are transmitted only to that domain by the browser. However, cookies scoped to a parent-level domain may be transmitted to the parent, or any subdomain of the parent.</p>"
@@ -59,19 +59,19 @@
             {
               "Count": "19",
               "Solution": "<p>Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.</p>",
-              "Name": "Web Browser XSS Protection Not Enabled",
+              "Name": "XSS Protection Not Enabled",
               "Description": "<p>Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server</p>"
             },
             {
-              "Count": "4",
+              "Count": "8",
               "Solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-              "Name": "Absence of Anti-CSRF Tokens",
+              "Name": "No Anti-CSRF Tokens",
               "Description": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>"
             },
             {
-              "Count": "2",
+              "Count": "8",
               "Solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
-              "Name": "CSP Scanner: Wildcard Directive",
+              "Name": "Wildcard Directive",
               "Description": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>frame-ancestor</p>"
             }
           ]
@@ -126,9 +126,9 @@
             })
             .attr("font-family", "sans-serif")
             .attr("font-size", function(d){
-                return d.r/9;
+                return d.d/9;
             })
-            .attr("fill", "white");
+            .attr("fill", "black");
 
         node.append("text")
             .attr("dy", "1.3em")
@@ -138,7 +138,7 @@
             })
             .attr("font-family",  "Gill Sans", "Gill Sans MT")
             .attr("font-size", function(d){
-                return d.r/5;
+                return d.r/2;
             })
             .attr("fill", "white");
 

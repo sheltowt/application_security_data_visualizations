@@ -1,17 +1,8 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
 jobs:
-  build-and-test:
-    executor:
-      name: node/default
+  build:
+    docker: 
+      - image: circleci/node:4.8.2 
     steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: node app.js
-workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
+      - checkout 
+      - run: echo "hello world" # run the `echo` command

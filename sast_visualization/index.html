@@ -28,7 +28,7 @@
 }
 
 </style>
-<svg width="700" height="700"></svg>
+<svg width="975" height="975"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
@@ -36,7 +36,7 @@ var svg = d3.select("svg"),
     margin = 20,
     diameter = +svg.attr("width"),
     g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
-
+// var color = d3.scaleSequential([8, 0], d3.interpolateMagma)
 var color = d3.scaleLinear()
     .domain([-1, 5])
     .range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"])
