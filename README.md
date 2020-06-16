@@ -1,3 +1,1 @@
-<a href="https://github.com/sheltowt/" title="Bill's Presentation"><img src="https://github.com/sheltowt/" width="1280" height="720"></a>
-
-
+<a href="https://github.com/sheltowt/application_security_data_visualizations/blob/master/presentation/slide_1.png" title="Bill's Presentation"><img src="https://github.com/sheltowt/application_security_data_visualizations/blob/master/presentation/slide_1.png" width="1280" height="720"></a>
