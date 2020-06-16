@@ -5,4 +5,4 @@ jobs:
       - image: circleci/node:4.8.2 
     steps:
       - checkout 
-      - run: echo "hello world" # run the `echo` command
+      - run: npm install
