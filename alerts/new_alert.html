@@ -62,13 +62,16 @@ text {
     <h4><a href="sca">Insecure Deserialization Vulnerability</a></h4>
     <p>The application build #321 was deployed with an insecure</p> 
     <p>deserialization error due to use of the Apache Struts library</p>
-    <h4><a href="nginx">NGINX Logs Indicate Intentional Tampering</a></h4>
+    <h4><a href="nginx">NGINX Logs Indicate Tampering</a></h4>
     <p>Repeated attack attempts at vulnerable URL</p>
-    <h4><a href="osquery">New Process Spawned</a></h4>
+    <p>RESPONSE - SIEM alert generated</p>
+    <h4><a href="osquery">Remote Code Execution</a></h4>
     <p>OSQuery detected abnormal endpoint activity</p>
     <p>consistent with remote code execution</p>
+    <p>RESPONSE - On-Call Notification</p>
     <h4>Abnormal Database Activity</h4>
     <p>Database queries occured that had never been seen before</p>
+    <p>RESPONSE - Server and Database Quarantined</p>
     <h4>Manual Investigation Required</h4>
     <p>Review traffic leaving the VPC</p>
     <p>Conduct forensic analysis of server and database</p>
@@ -78,13 +81,13 @@ text {
 <script>
 
 var links = [
-  {source: "Insecure Deserialization SCA", target: "NGINX Logs Indicate Web App Tampering", type: "suit"},
-  {source: "NGINX Logs Indicate Web App Tampering", target: "Abnormal Endpoint Telemetry - New Process Spawned", type: "suit"},
-  {source: "Abnormal Endpoint Telemetry - New Process Spawned", target: "Abnormal Database Activity - Unexpected Query", type: "suit"},
-  {source: "Abnormal Database Activity - Unexpected Query", target: "Manual Response Required - Investigate Network, Database Activity", type: "licensing"},
-  {source: "NGINX Logs Indicate Web App Tampering", target: "Medium Severity Alert", type: "medium_resolved"},
-  {source: "Abnormal Endpoint Telemetry - New Process Spawned", target: "High Severity Alert, On-Call Notification", type: "high_resolved"},
-  {source: "Abnormal Database Activity - Unexpected Query", target: "Automated Response - Quarantine Server and Database", type: "automated_resolved"}
+  {source: "Insecure Deserialization SCA", target: "NGINX Logs Indicate Tampering", type: "suit"},
+  {source: "NGINX Logs Indicate Tampering", target: "Remote Code Exection", type: "suit"},
+  {source: "Remote Code Exection", target: "Abnormal Database Activity", type: "suit"},
+  {source: "Abnormal Database Activity", target: "Manual Response Required", type: "licensing"},
+  {source: "NGINX Logs Indicate Tampering", target: "SIEM Alert", type: "medium_resolved"},
+  {source: "Remote Code Exection", target: "On-Call Notification", type: "high_resolved"},
+  {source: "Abnormal Database Activity", target: "Server and Database Quarantined", type: "automated_resolved"}
 ];
 
 var nodes = {};
